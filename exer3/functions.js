@@ -6,7 +6,11 @@
     Example: [1, 2, 3] -> [3, 2, 1]
 */
 function reverseArr(arr) {
-
+    let arr2 = [];
+    for(let i = 0; i < arr.length; i++) {
+        arr2.push(arr[arr.length-i-1]);
+    }
+    return arr2;
 }
 
 /*
@@ -25,7 +29,12 @@ function reverseArr(arr) {
     ["name", "age", "breed", "friendly"]
 */
 function objectKeysToArr(object) {
-
+    let arr = [];
+    for(var key in object) {
+        if(object.hasOwnProperty(key))
+        arr.push(key);
+    }
+    return arr;
 }
 
 /*
@@ -52,7 +61,11 @@ function objectKeysToArr(object) {
     }
 */
 function combineObjects(object1, object2) {
-
+    const obj = {
+        ...object1,
+        ...object2
+    };
+    return obj;
 }
 
 
@@ -63,4 +76,4 @@ console.log(reverseArr([2, 4, 6, 8]))
 console.log(objectKeysToArr({ name: "Casey", age: 18, breed: "Pomeranian", friendly: false }))
 console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian", "test 1": false }))
 console.log(combineObjects({ name: "Casey", age: 18 }, { breed: "Pomeranian", friendly: false }))
-console.log(objectKeysToArr({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false }))
+console.log(combineObjects({ 0: "Casey", 1: 18, 2: "Pomeranian" }, { "test 1": false }))
